@@ -1,8 +1,6 @@
 import pygame
-import pygame_gui
 import random
 from copy import deepcopy
-import pdb
 from time import time
 
 #ma być metaheurystycznie - fukcja ocena, fukncji kary, metoda ulosowiona zachłanna
