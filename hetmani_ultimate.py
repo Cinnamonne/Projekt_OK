@@ -3,13 +3,6 @@ import random
 from copy import deepcopy
 from time import time
 
-#ma być metaheurystycznie - fukcja ocena, fukncji kary, metoda ulosowiona zachłanna
-#sposób I: stawianie I hetmana w I wierszu, potem wybieranie rozwiązania (?)
-#sposób II: stawianie I hetmana randomowo 
-#sposób III:
-
-#może być tablica, ktora ma kol i wiersze zajęte już 
-#figura cyrkiel, ktora bije okrąg. Trzeba też je rozstawić
 
 #-------------------------------------------------------------------------------------------------------------------
 #zmienne globalne-------------------------------
@@ -374,12 +367,18 @@ def max_on_board(chessboard):
 def main():
     results=[]
     global chessboard_points, ms, solution
-    n=11
-    k=9
+    
+    n = int(input("How many rows (n>4): "))
+    k = int(input("How many columns (k>4): "))
+   
+
     
     while(n<=4 or k<=4):
         print("Wrong data (n>4, k>4):")
-    
+        n = int(input("How many rows (n>4): "))
+        k = int(input("How many columns (k>4): "))
+   
+
     
     transp=False
     if n>k:
@@ -423,12 +422,13 @@ def main():
     print("Total points :", results[2][1])
     print("Time: ", results[2][2])
     print("---------------------------------------") 
-    
+    print("Press right arrow to see results in window.")
     names=["Method: Bruteforce", "Method: Max-in-row", "Method: Max-on-board"]
     
     pygame.init()
     running=True
     choice=0
+   
     while(running):
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
